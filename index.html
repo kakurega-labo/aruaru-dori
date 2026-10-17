@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>あるある通り</title>
-<meta name="description" content="日常のどこかを舞台にしたブラウザゲームを、1作ずつ1軒のお店として並べるゲーム商店街。ピッ！セルフレジ、昼休みダッシュ ほか。">
+<meta name="description" content="日常のどこかを舞台にしたブラウザゲームを、1作ずつ1軒のお店として並べるゲーム商店街。ピッ！セルフレジ、昼休みダッシュ、号外でーす！ ほか。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="あるある通り">
 <meta property="og:title" content="あるある通り">
-<meta property="og:description" content="いつもの場所が、ゲームになる通り。ピッ！セルフレジ／昼休みダッシュ ほか">
+<meta property="og:description" content="いつもの場所が、ゲームになる通り。ピッ！セルフレジ／昼休みダッシュ／号外でーす！ ほか">
 <meta property="og:url" content="https://aruaru-dori.pages.dev/">
 <meta property="og:image" content="https://aruaru-dori.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
@@ -93,7 +93,7 @@ h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,3.4vw,36px);ma
 .sec-head p{margin:0;color:var(--fg-2);font-size:14px}
 
 /* the street */
-.street{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:end;padding-bottom:46px}
+.street{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:end;padding-bottom:46px}
 .street::after{content:"";position:absolute;left:-200vw;right:-200vw;bottom:0;height:30px;background:var(--road);
   background-image:linear-gradient(90deg,var(--bg) 0 40px,transparent 40px 80px);background-size:80px 3px;background-repeat:repeat-x;background-position:0 50%;z-index:-1}
 .street{isolation:isolate}
@@ -104,7 +104,7 @@ main{overflow-x:clip}
 .kanban{margin:-4px 16px 0;position:relative;z-index:1;background:var(--sign);color:var(--sign-fg);border-radius:4px;padding:10px 14px 12px;text-align:center;
   box-shadow:0 4px 0 var(--ki)}
 .kanban .addr{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;opacity:.75}
-.kanban h3{font-family:var(--f-disp);font-weight:900;font-size:clamp(22px,2.3vw,27px);line-height:1.3;margin:2px 0 0}
+.kanban h3{font-family:var(--f-disp);font-weight:900;font-size:clamp(19px,1.9vw,22px);white-space:nowrap;line-height:1.3;margin:2px 0 0}
 .door{position:relative;margin:18px 16px 0;height:150px;border-radius:4px 4px 0 0;background:var(--bg-2);overflow:hidden}
 .noren{position:absolute;left:10%;right:10%;top:10px;height:96px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
 .noren::before{content:"";position:absolute;left:-8%;right:-8%;top:-10px;height:6px;border-radius:3px;background:var(--ki)}
@@ -121,10 +121,11 @@ main{overflow-x:clip}
 .info .desc{margin:0;font-size:14.5px;line-height:1.8}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
 .tags li{font-size:12px;font-weight:700;border:1.5px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--fg-2)}
-.status{display:flex;align-items:center;gap:8px;font-weight:900;font-size:14px}
+.status{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;font-weight:900;font-size:14px}
 .status i{width:10px;height:10px;border-radius:50%;background:#3A9A5B;box-shadow:0 0 0 4px rgba(58,154,91,.18)}
 .status.soon i{background:var(--shu);box-shadow:0 0 0 4px rgba(210,73,47,.18)}
-.status .cd{font-family:var(--f-mono);color:var(--shu);font-variant-numeric:tabular-nums}
+.status [data-status-text]{white-space:nowrap}
+.status .cd{white-space:nowrap;font-family:var(--f-mono);color:var(--shu);font-variant-numeric:tabular-nums}
 .play{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:900;font-size:16px;border-radius:8px;padding:12px 16px;
   background:var(--c);color:var(--noren-ink);margin-top:auto;transition:transform .15s ease,filter .15s}
 .play:hover{transform:translateY(-2px);filter:brightness(1.08)}
@@ -155,6 +156,10 @@ main{overflow-x:clip}
 .foot-site small{color:var(--fg-2);font-family:var(--f-mono)}
 .foot-site small a{color:var(--fg)}
 
+@media (max-width:1060px){
+  .street{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .kanban h3{font-size:24px}
+}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
   .big-noren{max-width:200px;justify-self:start;order:-1}
@@ -196,7 +201,7 @@ main{overflow-x:clip}
         <h1>いつもの場所が、<br>ゲームになる通り。</h1>
         <p class="lede">日常のどこかを舞台にしたブラウザゲームを、1作ずつ1軒のお店として並べています。気になるのれんをくぐれば、インストールなしですぐ遊べます。</p>
         <div class="counter">
-          <div><small>営業中</small><strong id="n-open">2軒</strong></div>
+          <div><small>営業中</small><strong id="n-open">3軒</strong></div>
           <div><small>開店準備中</small><strong>1軒</strong></div>
         </div>
       </div>
@@ -255,16 +260,34 @@ main{overflow-x:clip}
           </div>
         </article>
 
-        <!-- 3番地（空き店舗。新作が出たら上と同じ形に差し替えて、次の空き店舗を足す） -->
+        <!-- 3番地 -->
+        <article class="shop" data-open="2026-10-17T15:00:00+09:00" data-name="号外でーす！" data-addr="3番地">
+          <span class="badge-new" data-new hidden>NEW</span>
+          <div class="roof"></div>
+          <div class="kanban"><div class="addr"><span>3番地</span><span>駅前</span></div><h3>号外でーす！</h3></div>
+          <div class="door">
+            <div class="noren"><span data-ch="号外"></span><span data-ch="号外"></span><span data-ch="号外"></span></div>
+            <div class="genre">午後3時のあるある駅 中央口</div>
+          </div>
+          <div class="info">
+            <p class="desc">駅前で、号外100部を60秒で配る。スマホ歩きも、急ぎ足も、両手ふさがりも。ちょうどいい瞬間に「パシッ」と渡せるか。</p>
+            <ul class="tags"><li>号外100部</li><li>パシッと手渡し</li><li>号外で共有</li></ul>
+            <div class="status soon" data-status><i></i><span data-status-text>10/17 15:00 開店</span><span class="cd" data-cd></span></div>
+            <a class="play" href="https://gogai-desu.pages.dev/" target="_blank" rel="noopener"><span data-label>遊ぶ</span> <span aria-hidden="true">→</span></a>
+            <div class="url">gogai-desu.pages.dev</div>
+          </div>
+        </article>
+
+        <!-- 4番地（空き店舗。新作が出たら上と同じ形に差し替えて、次の空き店舗を足す） -->
         <article class="shop vacant">
-          <div class="kanban"><div class="addr"><span>3番地</span><span>空き店舗</span></div><h3>？？？</h3></div>
+          <div class="kanban"><div class="addr"><span>4番地</span><span>空き店舗</span></div><h3>？？？</h3></div>
           <div class="door">
             <div class="shutter"></div>
             <div class="harigami">開店準備中<small>次の“あるある”を仕込み中</small></div>
           </div>
           <div class="info">
             <p>次はどんな日常のお店になるかは、まだ秘密です。開店したら、この場所にのれんが掛かります。</p>
-            <a class="follow" href="https://x.com/aruarudori" target="_blank" rel="noopener">開店のお知らせは X（@aruarudori）で</a>
+            <a class="follow" href="https://x.com/aruarudori" target="_blank" rel="noopener">開店のお知らせは X で</a>
           </div>
         </article>
       </div>
@@ -285,7 +308,7 @@ main{overflow-x:clip}
         <div class="rule">
           <span class="lab">EVERYDAY</span>
           <h3>舞台は、いつもの日常</h3>
-          <p>レジ、昼休み、そしてまだ見ぬどこか。だれもが「あるある」とうなずく場面がゲームになります。</p>
+          <p>レジ、昼休み、駅前、そしてまだ見ぬどこか。だれもが「あるある」とうなずく場面がゲームになります。</p>
         </div>
         <div class="rule">
           <span class="lab">ONE GAME, ONE SHOP</span>
@@ -312,7 +335,7 @@ main{overflow-x:clip}
   var notice = document.querySelector('[data-notice]');
   var nText = document.querySelector('[data-notice-text]'), nCd = document.querySelector('[data-notice-cd]');
   function tick(){
-    var now = Date.now(), shown = false;
+    var now = Date.now(), shown = false, best = null;
     document.querySelectorAll('[data-open]').forEach(function(shop){
       var open = Date.parse(shop.getAttribute('data-open'));
       var name = shop.getAttribute('data-name'), addr = shop.getAttribute('data-addr');
@@ -325,7 +348,7 @@ main{overflow-x:clip}
         if (stText) stText.textContent = when(open) + ' 開店';
         if (label) label.textContent = '開店前のようすを見る';
         if (badge) badge.hidden = true;
-        if (!shown) { nText.textContent = addr + 'に「' + name + '」' + when(open) + ' 開店'; nCd.textContent = 'あと ' + t; shown = true; }
+        if (!best || open > best.open) best = {open: open, text: addr + 'に「' + name + '」' + when(open) + ' 開店', cd: 'あと ' + t};
       } else {
         if (st) st.classList.remove('soon');
         if (stText) stText.textContent = '営業中';
@@ -333,10 +356,11 @@ main{overflow-x:clip}
         if (label) label.textContent = '遊ぶ';
         var fresh = (now - open) <= NEW_DAYS * DAY;
         if (badge) badge.hidden = !fresh;
-        if (fresh && !shown) { nText.textContent = addr + 'に「' + name + '」が開店しました'; nCd.textContent = ''; shown = true; }
+        if (fresh && (!best || open > best.open)) best = {open: open, text: addr + 'に「' + name + '」が開店しました', cd: ''};
       }
     });
-    if (notice) notice.hidden = !shown;
+    if (best) { nText.textContent = best.text; nCd.textContent = best.cd; }
+    if (notice) notice.hidden = !best;
   }
   tick(); setInterval(tick, 1000);
 })();
