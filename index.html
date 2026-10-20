@@ -156,6 +156,56 @@ main{overflow-x:clip}
 .foot-site small{color:var(--fg-2);font-family:var(--f-mono)}
 .foot-site small a{color:var(--fg)}
 
+
+/* 路地：昼でも夜の区画。提灯に1文字、番地なし、看板に遊ぶ時間の目安 */
+.corner{display:flex;justify-content:flex-end;margin-top:28px}
+.corner a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:15px;color:var(--fg);
+  background:var(--card);border:2px solid var(--ki);border-radius:6px;padding:8px 16px 8px 12px;box-shadow:0 4px 0 var(--ki)}
+.corner a .arr{font-family:var(--f-mono);font-size:18px;color:var(--ki)}
+.corner a:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ki)}
+.roji{--r-bg:#0C111C;--r-bg-2:#151C2C;--r-fg:#F2ECDF;--r-fg-2:#ABA391;--r-line:rgba(242,236,223,.14);--r-glow:rgba(255,186,96,.38);
+  background:var(--r-bg);color:var(--r-fg);padding-block:96px 80px;position:relative;overflow:hidden;
+  background-image:linear-gradient(180deg,rgba(0,0,0,.35),transparent 90px),
+    repeating-linear-gradient(90deg,transparent 0 63px,rgba(242,236,223,.035) 63px 64px),
+    repeating-linear-gradient(180deg,transparent 0 31px,rgba(242,236,223,.035) 31px 32px)}
+.roji .wire{position:absolute;left:0;right:0;top:22px;height:30px;pointer-events:none;
+  background:radial-gradient(circle at 50% 70%,#FFE2A8 0 4px,rgba(255,186,96,.45) 5px,transparent 11px) 0 0/90px 30px repeat-x}
+.roji .wire::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:rgba(242,236,223,.18)}
+.roji-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px 40px;align-items:end;margin-bottom:36px}
+.roji-head .lab{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.16em;color:#FFC97A}
+.roji h2{color:var(--r-fg);margin-top:4px}
+.roji-head p{margin:0;color:var(--r-fg-2);font-size:14.5px;max-width:36em}
+.alley{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px;align-items:start}
+.stall{position:relative;min-width:0;background:var(--r-bg-2);border:1px solid var(--r-line);border-radius:8px;padding:0 18px 20px;display:flex;flex-direction:column;gap:12px}
+.lantern-wrap{height:150px;display:grid;place-items:center;position:relative}
+.lantern::before{content:"";position:absolute;left:50%;top:-28px;width:1px;height:28px;background:rgba(242,236,223,.45)}
+.lantern{position:relative;width:86px;height:106px;margin-top:14px;transform-origin:50% -20px;animation:lsway 5s ease-in-out infinite}
+.lantern .body{position:absolute;inset:8px 0;border-radius:44% / 50%;
+  background:radial-gradient(ellipse at 50% 42%,#FFF7E3 0,#F5E6C4 55%,#E2C995 100%);box-shadow:0 0 46px 12px var(--r-glow)}
+.lantern .body::after{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(180deg,transparent 0 10px,rgba(120,80,40,.16) 10px 11px)}
+.lantern .cap{position:absolute;left:50%;width:46px;height:10px;margin-left:-23px;background:#1E1B18;border-radius:3px}
+.lantern .cap.t{top:0}.lantern .cap.b{bottom:0}
+.lantern .ch{position:absolute;inset:8px 0;display:grid;place-items:center;font-family:var(--f-disp);font-weight:900;font-size:44px;color:#22385F;z-index:1}
+@keyframes lsway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.stall-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.stall .kan{text-align:center}
+/* 路地に1軒だけのあいだは、横長の屋台にする */
+.stall:only-child{grid-column:1/-1;max-width:860px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:8px 32px;padding:24px 28px;align-items:center}
+.stall:only-child .lantern-wrap{height:100%;min-height:220px}
+.stall:only-child .lantern{transform:scale(1.35)}
+.stall:only-child .lantern{animation:none}
+.stall:only-child .kan{text-align:left}
+.stall:only-child .meyasu{align-self:flex-start}
+.stall:only-child .play{align-self:flex-start;min-width:220px}
+.stall:only-child .url{text-align:left}
+.stall .meta{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:11.5px;font-weight:700;color:var(--r-fg-2);letter-spacing:.06em}
+.stall h3{font-family:var(--f-disp);font-weight:900;font-size:24px;line-height:1.3;margin:2px 0 0}
+.meyasu{align-self:center;display:inline-flex;gap:8px;align-items:center;font-weight:900;font-size:13px;color:#1E1B18;background:#FFC97A;border-radius:999px;padding:3px 14px}
+.meyasu small{font-weight:700;font-size:11px;opacity:.75}
+.stall .desc{margin:0;font-size:14.5px;line-height:1.8;color:var(--r-fg)}
+.stall .tags li{border-color:var(--r-line);color:var(--r-fg-2)}
+.stall .play{background:#F2ECDF;color:#22385F;margin-top:6px}
+.stall .url{color:var(--r-fg-2)}
 @media (max-width:1060px){
   .street{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
   .kanban h3{font-size:24px}
@@ -168,6 +218,13 @@ main{overflow-x:clip}
 }
 @media (max-width:620px){
   .street{grid-template-columns:1fr;gap:40px}
+  .roji-head{grid-template-columns:1fr}
+  .stall:only-child{grid-template-columns:1fr;padding:0 18px 20px}
+  .stall:only-child .lantern-wrap{min-height:170px}
+  .stall:only-child .lantern{transform:none}
+  .stall:only-child .kan,.stall:only-child .url{text-align:center}
+  .stall:only-child .meyasu,.stall:only-child .play{align-self:stretch;text-align:center;justify-content:center}
+  .corner{justify-content:flex-start}
   .nav{display:none}
   .xh{display:none}
   .brand svg{height:42px}
@@ -175,7 +232,7 @@ main{overflow-x:clip}
   .big-noren{max-width:150px}
   .lede{font-size:16px}
 }
-@media (prefers-reduced-motion:reduce){.sway{animation:none}.noren span,.play{transition:none}}
+@media (prefers-reduced-motion:reduce){.sway,.lantern{animation:none}.noren span,.play{transition:none}}
 </style>
 
 </head>
@@ -186,6 +243,7 @@ main{overflow-x:clip}
     <div class="right">
     <nav class="nav" aria-label="ページ内">
       <a href="#shops">お店</a>
+      <a href="#roji">路地</a>
       <a href="#rules">通りのきまり</a>
     </nav>
       <a class="xlink" href="https://x.com/aruarudori" target="_blank" rel="noopener">X <span class="xh">@aruarudori</span></a>
@@ -291,6 +349,40 @@ main{overflow-x:clip}
           </div>
         </article>
       </div>
+
+      <div class="corner"><a href="#roji"><span class="arr">↳</span>この先、路地へ入る</a></div>
+    </div>
+  </section>
+
+  <!-- 路地（番地なし。「営業中 ○軒」・回覧板には入れない。作品が増えたら .stall を1つ足す） -->
+  <section class="roji" id="roji">
+    <div class="wire" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="roji-head">
+        <div>
+          <span class="lab">ROJI</span>
+          <h2>路地</h2>
+        </div>
+        <p>表通りから一本入った、寄り道の区画です。あるあるに限らず、60秒にもしばられない作品を、提灯をさげて置いています。看板には遊ぶ時間の目安を書いておきます。</p>
+      </div>
+      <div class="alley">
+        <article class="stall">
+          <div class="lantern-wrap" aria-hidden="true">
+            <div class="lantern"><span class="cap t"></span><span class="body"></span><span class="ch">宙</span><span class="cap b"></span></div>
+          </div>
+          <div class="stall-body">
+          <div class="kan">
+            <div class="meta"><span>路地</span><span>TEST TRACK</span></div>
+            <h3>宙がえり試験場</h3>
+          </div>
+          <span class="meyasu"><small>目安</small>1回30秒〜数分</span>
+          <p class="desc">ジャンプは1回。どこまで飛んで、きれいに着地できるか。ロケットで噴いて、空中で宙がえり。空気が減らない「自由に飛ぶ」もあります。</p>
+          <ul class="tags"><li>ジャンプ1回</li><li>宙がえり</li><li>自由に飛ぶ</li></ul>
+          <a class="play" href="https://flip-track.pages.dev/" target="_blank" rel="noopener">遊ぶ <span aria-hidden="true">→</span></a>
+          <div class="url">flip-track.pages.dev</div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -298,6 +390,7 @@ main{overflow-x:clip}
     <div class="wrap">
       <div class="sec-head">
         <h2>通りのきまり</h2>
+        <p>表通りのお店のきまりです。路地には当てはめません。</p>
       </div>
       <div class="rules">
         <div class="rule">
