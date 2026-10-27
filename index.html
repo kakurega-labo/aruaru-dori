@@ -175,7 +175,7 @@ main{overflow-x:clip}
 .roji-head .lab{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.16em;color:#FFC97A}
 .roji h2{color:var(--r-fg);margin-top:4px}
 .roji-head p{margin:0;color:var(--r-fg-2);font-size:14.5px;max-width:36em}
-.alley{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px;align-items:start}
+.alley{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;align-items:stretch}
 .stall{position:relative;min-width:0;background:var(--r-bg-2);border:1px solid var(--r-line);border-radius:8px;padding:0 18px 20px;display:flex;flex-direction:column;gap:12px}
 .lantern-wrap{height:150px;display:grid;place-items:center;position:relative}
 .lantern::before{content:"";position:absolute;left:50%;top:-28px;width:1px;height:28px;background:rgba(242,236,223,.45)}
@@ -187,7 +187,9 @@ main{overflow-x:clip}
 .lantern .cap.t{top:0}.lantern .cap.b{bottom:0}
 .lantern .ch{position:absolute;inset:8px 0;display:grid;place-items:center;font-family:var(--f-disp);font-weight:900;font-size:44px;color:#22385F;z-index:1}
 @keyframes lsway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
-.stall-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.stall-body{display:flex;flex-direction:column;gap:12px;min-width:0;flex:1}
+.stall .stall-body .play{margin-top:auto}
+.stall h3{text-wrap:balance}
 .stall .kan{text-align:center}
 /* 路地に1軒だけのあいだは、横長の屋台にする */
 .stall:only-child{grid-column:1/-1;max-width:860px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:8px 32px;padding:24px 28px;align-items:center}
@@ -380,6 +382,22 @@ main{overflow-x:clip}
           <ul class="tags"><li>ジャンプ1回</li><li>宙がえり</li><li>自由に飛ぶ</li></ul>
           <a class="play" href="https://flip-track.pages.dev/" target="_blank" rel="noopener">遊ぶ <span aria-hidden="true">→</span></a>
           <div class="url">flip-track.pages.dev</div>
+          </div>
+        </article>
+        <article class="stall">
+          <div class="lantern-wrap" aria-hidden="true">
+            <div class="lantern"><span class="cap t"></span><span class="body"></span><span class="ch">鍵</span><span class="cap b"></span></div>
+          </div>
+          <div class="stall-body">
+          <div class="kan">
+            <div class="meta"><span>路地</span><span>スマホのパスワードゲーム</span></div>
+            <h3>パスワード、<br>同じでいっか。</h3>
+          </div>
+          <span class="meyasu"><small>目安</small>1回 約2分</span>
+          <p class="desc">アプリを入れるたびに、パスワードを決める。覚えられるのは4つまで。数日後、どこかのアプリから流出のお知らせ。同じパスワードのアプリが、一斉に狙われる。</p>
+          <ul class="tags"><li>覚えられるのは4つ</li><li>使い回すか、作るか</li><li>一斉ログイン</li></ul>
+          <a class="play" href="https://password-same.pages.dev/" target="_blank" rel="noopener">遊ぶ <span aria-hidden="true">→</span></a>
+          <div class="url">password-same.pages.dev</div>
           </div>
         </article>
       </div>
